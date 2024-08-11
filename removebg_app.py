@@ -49,7 +49,7 @@ By default, the background is set to white, but you can choose any color you lik
 """)
 
 
-st.markdown("## Demonstration for Removing Image background")
+st.markdown("### Demonstration for Removing Image background")
 with st.expander("Background Remover Example:", expanded=False):
     with st.container():
         # Create two columns for comparison view
