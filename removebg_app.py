@@ -25,6 +25,31 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
+# Function to remove background
+def remove_background(image, bg_color):
+    try:
+        np_img = np.array(image)
+        result = rembg.remove(np_img)
+        if bg_color:
+            result = Image.fromarray(result).convert("RGBA")
+            background = Image.new("RGBA", result.size, bg_color)
+            final_img = Image.alpha_composite(background, result)
+            return final_img.convert("RGB")
+        return Image.fromarray(result)
+    except Exception as e:
+        st.error(f"Error removing background: {e}")
+        return image
+
+
+# Title and Info Section
+st.markdown("###Welcome to the Image Background Remover app!")
+st.info("""
+This tool allows you to easily remove the background from your images in one click. 
+By default, the background is set to white, but you can choose any color you like.
+""")
+st.markdown("---")
+
+
 with st.expander("Background Remover Example:", expanded=False):
     with st.container():
         # Create two columns for comparison view
@@ -44,31 +69,8 @@ with st.expander("Background Remover Example:", expanded=False):
 
         with col7:
             st.image("media/car_after.png", caption='After Edit', use_column_width=True)
-
-
-# Function to remove background
-def remove_background(image, bg_color):
-    try:
-        np_img = np.array(image)
-        result = rembg.remove(np_img)
-        if bg_color:
-            result = Image.fromarray(result).convert("RGBA")
-            background = Image.new("RGBA", result.size, bg_color)
-            final_img = Image.alpha_composite(background, result)
-            return final_img.convert("RGB")
-        return Image.fromarray(result)
-    except Exception as e:
-        st.error(f"Error removing background: {e}")
-        return image
-
-
-# Title and Info Section
-st.markdown("Welcome to the Image Background Remover app!")
-st.info("""
-This tool allows you to easily remove the background from your images in one click. 
-By default, the background is set to white, but you can choose any color you like.
-""")
 st.markdown("---")
+
 
 # Upload image
 uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
