@@ -47,9 +47,9 @@ st.info("""
 This tool allows you to easily remove the background from your images in one click. 
 By default, the background is set to white, but you can choose any color you like.
 """)
-st.markdown("---")
 
-st.markdown("> Demonstration for Removing Image background")
+
+st.markdown("## Demonstration for Removing Image background")
 with st.expander("Background Remover Example:", expanded=False):
     with st.container():
         # Create two columns for comparison view
