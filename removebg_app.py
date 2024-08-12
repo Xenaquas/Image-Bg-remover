@@ -18,7 +18,7 @@ st.title(page_title + " " + ":100:" )
 hide_st_style = """
         <style>
         #MainMenu {visibility: hidden;}
-        .stActionButton div{visibility: hidden;}
+        .stActionButton div{visibility: hidden; cursor: not-allowed;}
         #header {visibility: hidden;}
         #footer {visibility: hidden;}
         </style>
