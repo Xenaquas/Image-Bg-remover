@@ -17,7 +17,7 @@ Welcome to the Image Background Remover app! This simple and user-friendly web a
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/image-background-remover.git
+    git clone https://github.com/Xenaquas/image-background-remover.git
     ```
 2. Change to the directory:
     ```bash
