@@ -57,19 +57,19 @@ with st.expander("Background Remover Example:", expanded=False):
         col4, col5 = st.columns(2)
 
         with col4:
-            st.image("media/ronaldo.jpg", caption='Before Edit', use_column_width=True)
+            st.image("media/ronaldo.jpg", caption='Before Edit', use_container_width=True)
         with col5:
-            st.image("media/ronaldo_after.png", caption='After Edit', use_column_width=True)
+            st.image("media/ronaldo_after.png", caption='After Edit', use_container_width=True)
 
     with st.container():
         # Create two columns for comparison view
         col6, col7 = st.columns(2)
 
         with col6:
-            st.image("media/car.jpg", caption='Before Edit', use_column_width=True)
+            st.image("media/car.jpg", caption='Before Edit', use_container_width=True)
 
         with col7:
-            st.image("media/car_after.png", caption='After Edit', use_column_width=True)
+            st.image("media/car_after.png", caption='After Edit', use_container_width=True)
 st.markdown("---")
 
 
@@ -86,7 +86,7 @@ if uploaded_file is not None:
 
         # Original image preview
         with col1:
-            st.image(uploaded_file, caption='Original Image', use_column_width=True)
+            st.image(uploaded_file, caption='Original Image', use_container_width=True)
 
         # Select background color
         bgcolor = st.color_picker("Pick a background color", "#ffffff")
@@ -94,7 +94,7 @@ if uploaded_file is not None:
         # Remove background and show processed image
         with col2:
             output_image = remove_background(Image.open(uploaded_file), bgcolor)
-            st.image(output_image, caption='Processed Image', use_column_width=True)
+            st.image(output_image, caption='Processed Image', use_container_width=True)
 
     # Provide download link
     buf = io.BytesIO()
